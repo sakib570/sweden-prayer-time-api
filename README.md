@@ -1,5 +1,13 @@
 # Sweden Prayer Time API
-This project provides an API for Sweden prayer time based on Islamiska Forbundetcalculation method. It sends a request to Islamiska Forbundet api with a location and current date and parses the request and sends back the prayer times as a JSON respose
+This project provides an API for Sweden prayer time based on Islamiska Forbundet calculation method. It sends a request to Islamiska Forbundet API with a location name and current date and parses the request and sends back the prayer times as a JSON respose
+
+### Software Dependencies
+* NodeJS and npm
+
+Install the library using the following command on Debian based OS: 
+```bash
+sudo apt install node npm
+```
 
 ### Installing Packages and Running the Server
 To build and run the test at first navigate to the folder and run the following command:
