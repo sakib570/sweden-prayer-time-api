@@ -3,7 +3,8 @@ var htmlToJson = require('html-to-json');
 const format =  require('date-fns/format');
 const data = {
     ifis_bonetider_widget_city: 'Södertälje, SE',
-    ifis_bonetider_widget_date: format(Date.now(), 'EEEE dd MMMM yyyy')
+    ifis_bonetider_widget_date: ' '
+    //ifis_bonetider_widget_date: format(Date.now(), 'EEEE dd MMMM yyyy')
 };
 
 const sendRequest = () => {
