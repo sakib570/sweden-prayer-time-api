@@ -11,9 +11,10 @@ app.set('view engine', 'jade'); //B
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-    //console.log(sendRequest);
+    const result = sendRequest.sendRequest();
+    console.log(result);
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(sendRequest));
+    res.end(JSON.stringify(sendRequest.sendRequest()));
     //res.send(JSON.stringify(sendRequest));
 });
 

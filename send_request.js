@@ -7,7 +7,7 @@ const data = {
     //ifis_bonetider_widget_date: format(Date.now(), 'EEEE dd MMMM yyyy')
 };
 
-const sendRequest = () => {
+function sendRequest(){
     var jsonObject = {};
     needle('post', 'https://www.islamiskaforbundet.se/wp-content/plugins/bonetider/Bonetider_Widget.php', data, {json: false})
         .then((res) => {
@@ -34,4 +34,4 @@ const sendRequest = () => {
     });
     return jsonObject;
 }
-module.exports=sendRequest();
+module.exports={sendRequest};
