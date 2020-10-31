@@ -1,6 +1,8 @@
 const needle = require('needle');
 var htmlToJson = require('html-to-json');
 const format =  require('date-fns/format');
+
+var jsonObject = {};
 const data = {
     ifis_bonetider_widget_city: 'Södertälje, SE',
     ifis_bonetider_widget_date: ' '
@@ -8,7 +10,6 @@ const data = {
 };
 
 function sendRequest(){
-    var jsonObject = {};
     needle('post', 'https://www.islamiskaforbundet.se/wp-content/plugins/bonetider/Bonetider_Widget.php', data, {json: false})
         .then((res) => {
             //console.log(`Status: ${res.statusCode}`);
@@ -32,6 +33,6 @@ function sendRequest(){
         }).catch((err) => {
         console.error(err);
     });
-    return jsonObject;
 }
 module.exports={sendRequest};
+module.exports.jsonObject=jsonObject;
