@@ -4,6 +4,7 @@ var http = require('http'),
 
 const sendRequest = require("./send_request")
 var app = express();
+var jsonObject = require("./send_request").jsonObject;
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views')); //A
 app.set('view engine', 'jade'); //B
@@ -11,9 +12,14 @@ app.set('view engine', 'jade'); //B
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-    //console.log(sendRequest);
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(sendRequest));
+    sendRequest.sendRequest();
+    setTimeout(function afterTwoSeconds() {
+        const result = jsonObject;
+        //console.log(result);
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(result));
+    }, 1000)
+
     //res.send(JSON.stringify(sendRequest));
 });
 
