@@ -4,7 +4,7 @@ const format =  require('date-fns/format');
 
 var jsonObject = {};
 const data = {
-    ifis_bonetider_widget_city: 'Södertälje, SE',
+    ifis_bonetider_widget_city: 'Stockholm, SE',
     ifis_bonetider_widget_date: ' '
     //ifis_bonetider_widget_date: format(Date.now(), 'EEEE dd MMMM yyyy')
 };
@@ -24,7 +24,7 @@ function sendRequest(){
                     for (i = 1; i < data.length - 1; i = i + 2) {
                         var waqt = data[i].match(/[a-z]+|[^a-z]+/gi)[1];
                         //console.log(waqt, time)
-                        jsonObject.data.timings[waqt.toString()] = data[i].match(/[a-z]+|[^a-z]+/gi)[2];
+                        jsonObject.data.timings[waqt.toString()] = (data[i].match(/[a-z]+|[^a-z]+/gi)[2]).replace(/(\r\n|\n|\r)/gm, "");
                     }
                     //console.log(jsonObject);
                 }
